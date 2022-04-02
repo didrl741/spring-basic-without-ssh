@@ -22,6 +22,6 @@ public class OrderApp {
         Order order = orderService.createOrder(memberId, "itemA", 10000);
 
         System.out.println(order);
-        System.out.println("calc price = " + order.calculatePrice());
+        System.out.println("ccalc price = " + order.calculatePrice());
     }
 }
