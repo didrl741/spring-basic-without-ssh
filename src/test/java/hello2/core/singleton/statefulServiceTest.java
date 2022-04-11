@@ -15,14 +15,12 @@ public class statefulServiceTest {
         StatefulService statefulService1 = ac.getBean("statefulService", StatefulService.class);
         StatefulService statefulService2 = ac.getBean("statefulService", StatefulService.class);
 
-        statefulService1.order("userA", 100);
-        statefulService1.order("userB", 200);
+        int userAPrice = statefulService1.order("userA", 100);
+        int userBPrice = statefulService1.order("userB", 200);
 
-        // 100원을 기대했지만 중간에 B가 끼어들어서 200원으로 바뀌어버림 -> 큰 문제.
-        int price = statefulService1.getPrice();
-        System.out.println("price = " + price);
+        System.out.println("price = " + userAPrice);
 
-        Assertions.assertThat(statefulService1.getPrice()).isEqualTo(200);
+        Assertions.assertThat(userAPrice).isEqualTo(100);
     }
 
 
