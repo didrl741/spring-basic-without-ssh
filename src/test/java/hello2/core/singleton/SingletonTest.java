@@ -23,7 +23,24 @@ public class SingletonTest {
         // 참조값이 다르다.
         System.out.println("memberService1 = " + memberService1);
         System.out.println("memberService2 = " + memberService2);
-        
+
         Assertions.assertThat(memberService1).isNotSameAs(memberService2);
+    }
+
+    @Test
+    @DisplayName("싱글톤 패턴을 적용한 객체 사용")
+    public void singletonServiceTest() {
+
+        // private으로 생성자 막아둠. 컴파일 오류.
+        //new SingletonService();
+
+        SingletonService singletonService1 = SingletonService.getInstance();
+        SingletonService singletonService2 = SingletonService.getInstance();
+
+        // 같다.
+        System.out.println("singletonService1 = " + singletonService1);
+        System.out.println("singletonService2 = " + singletonService2);
+
+        Assertions.assertThat(singletonService1).isSameAs(singletonService2);
     }
 }
