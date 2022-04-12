@@ -61,4 +61,16 @@ public class SingletonTest {
 
         Assertions.assertThat(memberService1).isSameAs(memberService2);
     }
+
+    @Test
+    @DisplayName("@Configuration 없이 한다면? -> 싱글톤 보장 X")
+    void configurationDeep() {
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        AppConfig bean = ac.getBean(AppConfig.class);
+
+        System.out.println("bean = " + bean.getClass());
+    }
+
+
 }
