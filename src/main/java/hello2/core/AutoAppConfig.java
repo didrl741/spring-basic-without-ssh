@@ -8,6 +8,7 @@ import static org.springframework.context.annotation.ComponentScan.*;
 
 @Configuration
 @ComponentScan(
+        //basePackages = "hello2.core",
         excludeFilters = @Filter(type = FilterType.ANNOTATION, classes = Configuration.class))
 public class AutoAppConfig {
     // AppConfig와 충돌 피하려고 exclude 함. 보통은 안함.
