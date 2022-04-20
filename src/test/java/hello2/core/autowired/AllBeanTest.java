@@ -46,6 +46,6 @@ public class AllBeanTest {
             System.out.println("discountPolicy = " + discountPolicy);
             return discountPolicy.discount(member, price);
         }
-        
+
     }
 }
